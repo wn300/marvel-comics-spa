@@ -1,0 +1,210 @@
+
+/*begin -- styles app.component of the routing in app-root*/
+
+/**************  C o n t a i n e r s  -  C o n t r o l s  *********************/
+
+.characters-container {
+    padding-top: 20px;
+}
+
+.sort-div {
+    padding-top: 10px;
+}
+
+.h5-title {
+    margin-top: -15px
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(3.0rem + 2px) !important;
+}
+
+/**************  C h a r a c t e r  *********************/
+
+.div-character{   
+    width:95%;
+    height: 385px;
+    max-height: 385px;
+    margin-top: 40px;
+    background-color: #FFFFFF;
+    margin-left: 30px;
+}
+
+.img-character{
+    width: 225px;
+    height: 230px;
+    margin-left: -35px;
+    margin-top: -20px;
+    margin-bottom: 15px;
+}
+
+.character-content{
+    padding-left:0px;
+    margin-left: -5px; 
+    color: #786E6D;
+    height: 210px;
+}
+
+/**************  C o m i c s  *********************/
+.link-favs{
+    display: none !important
+}
+.related-comics{
+    padding:0px 15px 0px 20px;
+}
+
+._hoverRelated:hover {
+    color:#DC1D23;
+    background: url("../../assets/images/icons/link-arrow.png")  left no-repeat transparent !important;  
+    background-position: 5% 10% !important;
+    padding-left: 40px;
+    
+    cursor: pointer;
+}
+._hoverRelated{
+    padding-top: 10px;
+}
+.button-more, .button-more-bk {
+    width: 100% !important;
+    height: 38px;
+    padding: .0rem .0rem !important;
+    font-size: 0.8rem !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    border-radius: 0.1rem !important;
+    cursor: pointer;
+     position: static;
+    bottom:0px;
+}
+.button-more {
+    background-color: #EC1D23 !important;
+}
+.button-more-bk {
+     background-color: #3E3535 !important;
+}
+
+
+.button-more:hover {
+    background-color: #EB4B50 !important;
+}
+
+/**************  O t h e r s  *********************/
+
+.pagination{
+    margin-top:20px; 
+    margin-bottom:20px;
+}
+.linkFavs{
+    display: none
+}
+ .paginator /deep/ .ngx-pagination a  {
+    background: #ffffff;
+    color: #D5C5C5;
+    margin-left: 3px;
+    margin-right: 3px;    
+    font-weight: bold;
+    height: 40px;
+    line-height: 38px;
+    width: 40px;
+    text-align: center;
+  }
+
+  .paginator /deep/ .ngx-pagination .current {
+    background: #ffffff;
+    color: #3E3535;
+    margin-right: 3px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 38px;
+    width: 40px;
+    text-align: center;
+  }
+
+/********************  Media 1 0 2 7  p x  ***************************/
+@media (max-width: 1027px) {
+    .div-character {
+        height: auto;
+        min-height: 350px;
+        margin-top: 40px;
+        background-color: #FFFFFF;
+        margin-left: 28px;
+    }
+
+  .img-character {
+    width: 160px;
+    height: 160px;
+    margin-left: -30px;
+    margin-top: -15px;
+  }
+  .character-content{
+    margin-left: 0px; 
+    }
+}
+
+/********************  Media 7 6 8  p x  ***************************/
+@media (max-width: 768px){
+    .div-character {
+        height: auto;
+        min-height: 410px;
+        margin-top: 40px;
+        background-color: #FFFFFF; 
+        margin-left: 27px;      
+    }
+
+
+    .img-character {
+        width: 215px;
+        height: 215px;
+        margin-left: -26px;
+        margin-top: -27px;
+
+    }
+     .character-content{
+        margin-left: 0px;         
+
+    }
+
+    .button-more, .button-more-bk {
+        width: 97% !important;
+        margin: 0px 0px 0px 15px; 
+    }
+
+}
+/********************  Media 7 3 2  p x  ***************************/
+.link-favs{
+    display: inline !important
+}
+@media (max-width: 732px) {
+    .img-character {
+        width: 190px;
+        height: 190px;
+        margin-left: -27px;
+        margin-top: -20px;  
+    }
+ 
+
+    .div-character {
+        height: auto;
+        min-height: 660px;
+        margin-top: 40px;
+        background-color: #FFFFFF; 
+        margin-left: 19px;      
+    }
+
+     .character-content{
+        margin-left: 0px; 
+    }
+    
+    .descCharacter{
+       margin: 0px 2px 0px 17px; 
+    }
+    .button-more, .button-more-bk {
+        width: 95% !important;
+        margin: 0px 0px 0px 15px; 
+    }
+    .linkFavs{
+    display: inline;
+}
+}
+

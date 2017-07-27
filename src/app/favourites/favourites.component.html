@@ -1,0 +1,34 @@
+<section id="favouritesContainer">
+<div class="favourites-container">
+    <div class="row">
+        <div class="col-12">
+            <h3>
+                <img class="img-fluid" src="assets/images/icons/favourites.png" alt="MarvelComics" />My favourites
+            </h3>
+        </div>
+    </div>
+</div>
+<div *ngFor="let favourite of favourites" >
+    <div class="row comic-favourite" >
+        <div  class="col-12 text-center">
+            <div class="col-12 text-right container-img">                                               
+                <img class="img-delete" src="assets/images/icons/btn-delete.png" alt="delete" />
+                <div class="overlay-img">
+                  <div class="hover-img">
+                    <img class="img-hover" (click)="deleteFavourite(favourite)" src="assets/images/icons/btn-dead-pool.png" alt="close" data-dismiss="modal" aria-label="Close" />               
+                  </div>
+                </div>
+              </div>
+            
+        
+            <img class="img-favourite"  src="{{favourite.thumbnail.path+'.'+favourite.thumbnail.extension}}" alt="Favourites"/>
+        </div>
+        <div class="col-12 text-center">
+            <h5>            
+                <span>{{favourite.title}}</span>
+            </h5>
+        </div>
+    </div>
+</div>
+</section>
+<!--<button (click)="getRandomFavourites()">get random favourites</button>-->

@@ -1,0 +1,31 @@
+<div class="container comic-datails" *ngIf="comicDetails">
+      <div class="row">
+          <div class="col-lg-4 col-md-4 col-12">
+              <img class="img-comic-selected" src="{{comicDetails.thumbnail.path+'.'+comicDetails.thumbnail.extension}}" alt="{{comicDetails.title}}}"/>
+          </div>
+          <div class="col-lg-8 col-md-8 col-12">
+              <div class="col-12">
+                  <h3>{{comicDetails.title}}</h3>
+              </div>
+              <div class="col-12" *ngIf="comicDetails.description != null">
+                <div [ngSwitch]="comicDetails.description.length">
+                    <div *ngSwitchCase="0" >
+                        There is currently no description available
+                    </div>
+                    <div *ngSwitchDefault>
+                        {{comicDetails.description}}
+                    </div>                            
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="row row-buttons">
+        <div class="col-lg-6 col-md-6 col-12 col-buttons">                        
+            <button [hidden]="comicFavourite == true" class="form-control button-add" (click)="selectFavourite()" ><img class="img-fluid" src="assets/images/icons/btn-favourites-default.png" alt="Favourites" />ADD TO FAVOURITES</button>                
+            <button [hidden]="comicFavourite == false" class="form-control button-added" (click)="selectFavourite()" ><img class="img-fluid" src="assets/images/icons/btn-favourites-primary.png" alt="Favourites" />ADDED TO FAVOURITES</button>                
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 col-buttons">
+            <button class="form-control button-buy" ><img class="img-fluid" src="assets/images/icons/shopping-cart-primary.png" alt="Shop" />BUY FOR {{comicDetails.prices[0].price}}</button>
+        </div>
+      </div>
+</div>

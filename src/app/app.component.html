@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col-12 header">
+      <header [(superHero)]="filter"></header>
+  </div>
+  <div class="col-lg-9 characters-container">
+      <character-view [recivedfilter]="filter" (selectedCharacter)="onSelectedCharacter($event)" (selectedComic)="onSelectedComic($event)" ></character-view>
+  </div>
+  <div class="col-lg-3 favourites-container">
+      <favourites [recivedfavourite]="comicFavourite" [actionFavourite]="actionFav" (getRandom)="onGetRandom($event)"></favourites>
+  </div>  
+  <div class="col-12">  
+    <div class="modal fade" id="ComicsModal" tabindex="-1" >
+      <div class="modal-dialog" role="document"  >
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 text-right">                
+                <img src="assets/images/icons/btn-close.png" alt="close" data-dismiss="modal" aria-label="Close" />               
+                <div class="overlay-img">
+                  <div class="hover-img">
+                    <img class="img-hover" src="assets/images/icons/btn-close-hover.png" alt="close" [attr.data-dismiss]="dmModal" (click)="Modal('cerrar')" />               
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div [ngSwitch]="modalOption">
+                  <div *ngSwitchCase="'comics'">
+                    <comics-view [recivedcharacter]="selectedCharacter" [actionCharacter]="actionCharacter" (selectedComic)="onSelectedComicDet($event)"></comics-view>        
+                  </div>
+                  <div *ngSwitchCase="'detail'">
+                    <comicDetails-view [recivedcomic]= "idComic" (selectedFavourite)="onSelectedFavourite($event)"></comicDetails-view>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>        
+    </div>   
+  </div>
+  <div class="col-12 footer"> 
+      <footer></footer>
+  </div>
+</div>
+
+

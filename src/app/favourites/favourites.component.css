@@ -1,0 +1,49 @@
+.img-favourite{   
+    margin-bottom:10px; 
+    width: 220px;
+    height: 270px;
+    
+}
+.img-delete{
+    margin:-15px 0px 0px -50px;
+    position: absolute;
+}
+.comic-favourite{
+    margin-bottom: 20px;
+}
+
+
+
+
+.overlay-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.overlay-img:hover {
+  opacity: 1;
+}
+
+
+.hover-img {  
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;;
+}
+.img-hover{    
+  margin:-22px 15px 0px 0px;
+}
+
+/********************  Media 7 3 2  p x  ***************************/
+@media (max-width: 732px) {
+  .img-delete{
+    margin:-15px 0px 0px -75px;
+    position: absolute;
+}
+}

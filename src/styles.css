@@ -1,0 +1,77 @@
+/*#container-header {
+    width: 100% !important;
+}*/
+
+/*begin -- styles heades nav and footer of the index*/
+/*.nav-header-sombra{
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.75) !important;
+    box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.75) !important;
+}*/
+
+
+/**************  G e n e r a l  *********************/
+
+
+
+#footer-text{
+    padding-top: 15px;
+}
+
+
+
+/*test border to view elements*/
+.border-test{
+    border: 1px solid red;
+}
+
+
+
+.form-group {
+    margin-bottom: .7rem !important;
+}
+
+.form-control {
+    padding: .81rem .75rem !important;
+    border-radius: 0.15rem !important;
+    margin-top: 0.4rem !important;
+}
+
+
+
+
+#footer{
+   padding-top: 1rem !important;
+   padding-bottom: 1.1rem !important;
+}
+
+
+#top-search{
+     margin-top: 4px;
+}
+
+.search-input-icon
+{
+    background: url("./assets/images/icons/search.png")  right no-repeat #FAFAFA !important;      
+}
+
+.superhero-icon
+{
+    background: url("./assets/images/icons/characters.png")  right no-repeat #FAFAFA !important;      
+}
+
+input::-webkit-input-placeholder {
+  color: #BDBDBD !important;
+}
+input:-moz-placeholder {
+  color: #BDBDBD !important; 
+}
+input:-ms-input-placeholder { 
+  color: #BDBDBD !important; 
+}
+/*end -- styles heades nav and footer of the index*/
+
+
+
+
+    

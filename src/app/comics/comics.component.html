@@ -1,0 +1,44 @@
+<div class="container" *ngIf="CharacterSelected">
+    <div class="row header-modal" >
+      <div class="col-lg-3 col-md-12 col-12">
+        <img class="img-character rounded-circle" src="{{CharacterSelected.image}}" alt="{{CharacterSelected.name}}"/>
+      </div>
+      <div class="col-lg-9 col-md-12 col-12character-content">            
+        <div class="row">
+          <div class="col-12">
+            <h3 *ngIf="CharacterSelected">{{CharacterSelected.name}}</h3>
+          </div>          
+          <div class="col-12">
+            <div [ngSwitch]="CharacterSelected.description.length">
+                <div *ngSwitchCase="0" >
+                    There is currently no description available
+                </div>
+                <div *ngSwitchDefault>
+                    {{CharacterSelected.description}}
+              </div>
+            </div>
+          </div>                   
+        </div>
+      </div>          
+    </div>
+    <div class="row searchComic justify-content-end">
+       <div class="col-lg-4 col-md-12 col-12">
+          <input [(ngModel)]="searchComic" type="text" class="form-control search-input-icon" placeholder="Search comic...">
+      </div>  
+    </div>
+    <div class="row">
+        <div *ngFor="let comic of ComicsArray" class="col-lg-3 col-md-12">
+            <div class="row ComicsGallery">
+                <div class="container-img col-12">
+                    <img class="img-comic" src="{{comic.thumbnail.path+'.'+comic.thumbnail.extension}}" alt="{{comic.title}}}"/>
+                    <div class="middle-img" data-toggle="modal" data-target="#ComicModal" (click)="viewComicDetails(comic.id)"> 
+                        {{comic.title }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+  
+</div>

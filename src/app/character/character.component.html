@@ -1,0 +1,88 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-lg-8 col-md-6 col-12 text-lg-left text-md-left text-center characters-container">
+            <h3>
+                <img class="img-fluid" src="assets/images/icons/characters.png" alt="MarvelComics" />Characters
+                
+                <a class="page-scroll" href="#favouritesContainer"><img class="img-fluid linkFavs page-scroll" src="assets/images/icons/favourites.png" alt="MarvelComics" /></a>
+            </h3>
+        </div>
+       
+        <div class="col-lg-4 col-md-6 col-12 text-lg-left text-md-left text-center sort-div">
+            <select #sortBy id="SelectedSortBy" class="form-control" (change)="sortSearch(sortBy.value)">
+                <option>Sort by</option>
+                <option value="name" >Name</option>
+                <option value="-name" >Name Descending</option>
+                <option value="modified" >Modified</option>
+                <option value="-modified" >Modified Descending</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let character of ArrayResult | paginate: { itemsPerPage: 10, currentPage: page } ; let i = index"
+            class="col-lg-6 col-md-12 col-12" >        
+            <div class="div-character" on-mouseover='over(DivMouse.id)' on-mouseleave='leave(DivMouse.id)' #DivMouse id="{{i}}" >            
+                <div class="row row-eq-height">
+                    <div class="col-lg-6 col-md-5 col-12 text-lg-left text-md-left text-center">
+                        <img class="img-character rounded-circle" src="{{character.thumbnail.path+'.'+character.thumbnail.extension}}" alt="MarvelComics"/>
+                    </div>
+                    <div class="col-lg-6 col-md-7 col-12 text-left text-lg-left text-md-left text-center character-content">
+                        <div class="row">
+                            <div class="col-12"> 
+                                <h5 class="h5-title " id="TitleName{{i}}" >
+                                    {{character.name| uppercase}}
+                                </h5>
+                                <div [ngSwitch]="character.description.length">
+                                    <div *ngSwitchCase="0">
+                                        There is currently no description available
+                                    </div>
+                                    <div *ngSwitchDefault class="descCharacter">
+                                        {{character.description | slice: 0:150}}
+                                        <span [hidden]="character.description.length < 150">...</span>
+                                    </div>                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 col-12"> 
+                                <button [hidden]="character.comics.items.length == 0" class="form-control button-more" (click)="viewComics(character)" data-toggle="modal" data-target="#ComicsModal" >VIEW MORE</button>                        
+                                <button [hidden]="character.comics.items.length > 0" class="form-control button-more-bk" >NO DETAIS</button>                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row related-comics">
+                    <div class=" col-lg-12 col-md-12 col-12 text-lg-left text-md-left text-center">
+                        <h5>
+                            Related comics
+                        </h5>
+                    </div>
+                    <div [ngSwitch]="character.comics.items.length">
+                        <div *ngSwitchCase="0" class=" col-lg-12 col-md-12 col-12 text-lg-left text-md-left text-center">
+                            <div class="row">
+                                <div class="col-12 text-lg-left text-md-left text-center">
+                                    At this moment there are no related comics
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngSwitchDefault class=" col-lg-12 col-md-12 col-12 text-lg-left text-md-left text-center">
+                            <div class="row">
+                                <div *ngFor="let comic of character.comics.items;  let i=index" class=" col-lg-6 col-md-6 col-12 text-lg-left text-md-left text-center _hoverRelated">
+                                    <div *ngIf="i<4" class="textHover" data-toggle="modal" data-target="#ComicsModal" (click)="viewComicDetails(comic.resourceURI)">
+                                        {{comic.name | slice: 0:40}}
+                                        <span [hidden]="comic.name.length < 50">...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>    
+    </div>  
+    <div class="row pagination">
+        <div class="col-12 text-center">
+            <pagination-controls (pageChange)="page = $event" class="paginator"  previousLabel="" nextLabel=""></pagination-controls>
+        </div>
+    </div>
+</div>
